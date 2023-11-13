@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/images/logo_fundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/consulta_cupom.css">
+    <title>Consulta cupom</title>
+</head>
+<body>
+    <main>
+        <h1>Tabela de cupons não processados</h1>
+        <hr>
+        <div class="search">
+            <label for="data-search" class="pesquisa">Pesquisar Data:</label>
+            <input type="text" id="data-search" name="data-search" placeholder="Separando com -">
+            <button onclick="searchData()" class="botao">Pesquisar</button>
+            <a href="/atualiza"><button class="botao">Atualizar</button></a>
+            <a href="/"><button class="botao">Voltar</button></a>
+            <p>Cupons não processados: {{ quantidade }}</p>
+        </div>
+        <table class="excel-table">
+            <tr>
+                <th>Número cupom</th>
+                <th>Loja movimento</th>
+                <th>Data movimento</th>
+            </tr>
+            {% for row in dados %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <hr> 
+        <a href="/"><button class="botao">Voltar</button></a>
+    </main>
+    <script src="../static/Js/lista_tentativas.js"></script>
+</body>
+</html>

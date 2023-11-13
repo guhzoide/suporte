@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/images/logo_fundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/lista_lojas.css">
+    <title>Consulta cupom</title>
+</head>
+<body>
+    <main>
+        <h1>Lista lojas</h1>
+        <hr>
+        <div class="search">
+            <label for="data-search" class="pesquisa">Pesquisar host:</label>
+            <input type="text" id="data-search" name="data-search" placeholder="">
+            <button onclick="searchData()" class="botao">Pesquisar</button>
+            <a href="{{ url_for('baixar_lista', filename=lista_lojas) }}" rel="next"><button class="botao">Baixar lista</button></a>   
+            <a href="/"><button class="botao">Voltar</button></a>
+        </div>
+        <table class="excel-table">
+            <tr>
+                <th>Número da loja</th>
+                <th>Loja</th>
+                <th>Região</th>
+                <th>localização</th>
+                <th>Tronco</th>
+            </tr>
+            {% for numero_loja, loja, regiao, localizacao, tronco in combined_data %}
+                <tr>
+                    <td>{{ numero_loja }}</td>
+                    <td>{{ loja }}</td>
+                    <td>{{ regiao }}</td>
+                    <td>{{ localizacao }}</td>
+                    <td>{{ tronco }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <hr>
+        <a href="/"><button class="botao">Voltar</button></a>
+    </main>
+    <script src="../static/Js/lista_lojas.js"></script>
+</body>
+</html>

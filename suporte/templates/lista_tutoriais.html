@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/lista.css">
+    <link rel="shortcut icon" href="../static/images/logo_fundo.png" type="image/x-icon">
+    <title>Lista de tutoriais</title>
+</head>
+<body>
+    <h1>Lista de tutoriais</h1>
+    <main>
+        <input type="text" id="search" placeholder="Pesquisar tutorial"> 
+        <a href="/"><button class="botao">Voltar</button></a>
+        <div class="container">
+            <hr>
+            {% for tutorial in lista %}
+                <li><a target="_blank" href="{{ url_for('abrir_tutorial', filename=tutorial) }}" class="tutorial">{{ tutorial }}</a></li>
+            {% endfor %}
+        </div>
+    </main>
+    
+    <script src="../static/Js/lista_tutoriais.js"></script>
+</body>
+</html>

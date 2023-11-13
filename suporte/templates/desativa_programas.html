@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/images/logo_fundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/desativa_programas.css">
+    <title>Desativa programas</title>
+</head>
+<body>
+    <main>
+        <h1>Aguarde até que a função executada finalize - não feche a tela ou execute outra função!!!</h1>
+        <div class="botoes">
+            <a href="/verificaprog">Verificar programas</a>
+            <a href="/desativa_tudo">Reiniciar programas</a>
+            <a href="/verificar_disco">Verificar disco</a>
+            <a href="/">Voltar</a>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="esquerda">
+                <span class="lojas_title">Lojas</span>
+                <hr>
+                {% for loja, dados in linhas %}
+                    <p class="lojas">{{ loja }}: {{ dados }}</p>
+                {% endfor %}
+            </div>
+            <div class="direita">
+                <span class="verificaprog">Verificaprog - Uso de disco</span>
+                <hr>
+                {% for loja, dado in dados %}
+                    <p class="lojas">{{ loja }} {{ dado }}</p>
+                {% endfor %}
+                {% for dado in disco %}
+                    <p class="lojas">{{ dado }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    <script src="../static/Js/trava_tela.js"></script>
+</body>
+</html>

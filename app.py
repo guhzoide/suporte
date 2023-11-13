@@ -255,4 +255,4 @@ def desativa_tudo():
     return render_template('desativa_programas.html', linhas=combined_dados, dados=combined_data)
 
 if __name__ == '__main__':
-    app.run(port=5025, host='localhost', debug=True)
+    app.run(port=5000, host='localhost', debug=True)
